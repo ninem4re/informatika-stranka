@@ -32,7 +32,8 @@ gsap.registerPlugin(ScrollTrigger);
 
 // Initialize a new Lenis instance for smooth scrolling
 const lenis = new Lenis({
-    wheelMultiplier: 10,
+    wheelMultiplier: 1,
+    lerp: 0.19
 });
 
 // Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
