@@ -1,4 +1,5 @@
 .title {
+    mix-blend-mode: difference;
     filter: blur(40px);
     position: fixed;
     font-size: 7vw;
@@ -7,15 +8,41 @@
     height: 100%;
     align-content: center;
     text-align: center;
+    z-index: 2;
 }
 
-.spacer {
-    height: 10%;
+.top-height {
+    filter: blur(100px);
+    height: 75%;
+    width: 100%;
+    display: flex;
+    align-items: end;
+    opacity: 0;
+}
+
+.bottom-height {
+    filter: blur(100px);
+    height: 75%;
+    width: 100%;
+    display: flex;
+    align-items:start;
+    opacity: 0;
+}
+
+.blur {
+    backdrop-filter: blur(10px);
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 6vh;
+    z-index: 1;
 }
 
 .inline {
     display: flex;
     justify-content: space-evenly;
+    width: 100%;
     margin: 40px;
     filter: blur(400px);
     opacity: 0;

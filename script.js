@@ -9,24 +9,73 @@ window.onload = function() {
     gsap.to('.title', {
         duration: 1.2,
         delay: 2.6,
-        'transform': 'translateY(-45%) scale(0.3)',
+        'transform': 'translateY(-47%) scale(0.3)',
         ease: "elastic.out(0.11,0.1)"
     })
-    gsap.to('.explanation', {
+    gsap.to('.top-height', {
         filter: 'blur(0px)',
         duration: 1.5,
-        delay: 3.5,
+        delay: 3.1,
         opacity: 1,
         ease: "expo.out"
     })
-    gsap.to('.inline', {
+    gsap.to('.bottom-height', {
         filter: 'blur(0px)',
         duration: 1.5,
-        delay: 3.7,
+        delay: 3.1,
         opacity: 1,
         ease: "expo.out"
     })
 };
+
+gsap.registerPlugin(ScrollTrigger);
+
+// Initialize a new Lenis instance for smooth scrolling
+const lenis = new Lenis({
+    wheelMultiplier: 10,
+});
+
+// Synchronize Lenis scrolling with GSAP's ScrollTrigger plugin
+lenis.on('scroll', ScrollTrigger.update);
+
+// Add Lenis's requestAnimationFrame (raf) method to GSAP's ticker
+// This ensures Lenis's smooth scroll animation updates on each GSAP tick
+gsap.ticker.add((time) => {
+  lenis.raf(time * 1000); // Convert time from seconds to milliseconds
+});
+
+// Disable lag smoothing in GSAP to prevent any delay in scroll animations
+gsap.ticker.lagSmoothing(0);
+
+let tl = gsap.timeline({
+    scrollTrigger: {
+        trigger: '.top-height',
+        start: 'top top',
+        endTrigger: '.bottom-height',
+        end: 'bottom bottom',
+        scrub: true
+    }
+})
+
+tl.fromTo('.top-height article', {
+    filter: 'blur(0px)',
+    opacity: 1,
+    transform: 'scale(1)'
+}, {
+    filter: 'blur(30px)',
+    opacity: 0.2,
+    transform: 'scale(0.8)'
+})
+
+tl.fromTo('.inline', {
+    filter: 'blur(30px)',
+    opacity: 0.2,
+    transform: 'scale(0.8)'
+}, {
+    filter: 'blur(0px)',
+    opacity: 1,
+    transform: 'scale(1)'
+}, '-=100%')
 
 function angleToX(angle, angleMin, angleMax, WIDTH) {
     return (angle - angleMin) / (angleMax - angleMin) * WIDTH;
