@@ -22,7 +22,7 @@ window.onload = function() {
     gsap.to('.inline', {
         filter: 'blur(0px)',
         duration: 1.5,
-        delay: 3.5,
+        delay: 3.7,
         opacity: 1,
         ease: "expo.out"
     })
