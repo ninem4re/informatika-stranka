@@ -1,4 +1,5 @@
 .title {
+    filter: blur(40px);
     position: fixed;
     font-size: 7vw;
     margin: 0;
@@ -6,4 +7,71 @@
     height: 100%;
     align-content: center;
     text-align: center;
+}
+
+.spacer {
+    height: 10%;
+}
+
+.inline {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 40px;
+    filter: blur(400px);
+    opacity: 0;
+    background-color: white;
+}
+
+.inline article {
+    margin: 0;
+    color: black;
+    height: min-content;
+    width: min-content;
+    display: inline-block;
+    padding: 30px 10px 30px 10px;
+    background-color: white;
+}
+
+article.functions {
+    padding: 30px 15px 0 15px;
+    width: 200px;
+    box-sizing: border-box;
+    white-space: nowrap;
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings: "tnum" 1, "lnum" 1;
+}
+
+#values-panel > div {
+    width: 100%;
+}
+
+.inline article span {
+    display: block;
+    width: 200px;
+    text-align: center;
+    font-variant-numeric: tabular-nums lining-nums;
+    font-feature-settings: "tnum" 1, "lnum" 1;
+    margin-bottom: 6px;
+}
+
+.explanation {
+    filter: blur(400px);
+    color: black;
+    height: fit-content;
+    padding: 30px 20px 30px 20px;
+    margin: 40px;
+    background-color: white;
+    opacity: 0;
+}
+
+p {
+    margin: 0;
+    font-size: 24px;
+}
+
+#triangle-title {
+    white-space: pre;
 }

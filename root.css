@@ -3,6 +3,8 @@ body {
     height: 100%;
     margin: 0;
     font-family: "Space Grotesk", sans-serif;
+    color: white;
+    background-color: black;
 }
 
 html {
