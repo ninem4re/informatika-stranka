@@ -1,6 +1,6 @@
 .title {
     mix-blend-mode: difference;
-    filter: blur(200px);
+    filter: blur(30px);
     position: fixed;
     font-size: 7vw;
     margin: 0;
